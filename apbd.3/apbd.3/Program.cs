@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using apbd._3;
+using apbd._3.Containers;
 
 Console.WriteLine("Hello, World!");
 
@@ -11,3 +12,5 @@ Dictionary<string, int> dictionary = new();
 
 int? a = 1;
 a = null;
+
+Dictionary<Products, double> products = new();
