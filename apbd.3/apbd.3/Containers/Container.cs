@@ -5,22 +5,31 @@ namespace apbd._3.Containers;
 public class Container : IContainer
 {
     public double CargoMass { get; set; }
+    public double TareWeight { get; set; }
+    public double MaxPayload { get; set; }
+    public double Height { get; set; }
+    public double Depth { get; set; }
+    public string SerialNum { get; set; }
     
     //constructor - ctor or alt+insert
     //protected so you can use it in child classes
-    protected Container(double cargoMass)
+    protected Container()
     {
-        CargoMass = cargoMass;
-    }
-
-    public void Unload()
-    {
-        throw new NotImplementedException();
     }
 
     public virtual void Load(double cargoMass)
     {
-        throw new OverflowException();
+        CargoMass = cargoMass;
+        if (cargoMass > MaxPayload)
+        {
+            cargoMass = MaxPayload;
+            throw new OverflowException();
+        }
+    }
+    public virtual void Unload()
+    {
+        CargoMass = 0;
+        throw new NotImplementedException();
     }
 }
 
