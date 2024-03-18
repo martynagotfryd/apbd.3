@@ -7,20 +7,20 @@ public class RefrigeratedContainer : Container
     private double Temperature { get; set; }
     private Dictionary<string, double> _dictionary= new();
     
-    protected RefrigeratedContainer(string type, double temperature) 
+    public RefrigeratedContainer(string type, double temperature) 
     {
         _dictionary.Add("fruits", 13.3);
         _dictionary.Add("meat", 2.0);
         _dictionary.Add("eggs", 19.0);
         
-        if (_dictionary.ContainsKey(type) && _dictionary[Type] >= temperature)
+        if (_dictionary.ContainsKey(type) && _dictionary[type] >= temperature)
         {
             Type = type;
             Temperature = temperature;
         }
-        else
+        else 
         {
-            throw new Exception("Temperature is too low for given type.");
+            throw new Exception("Temperature is too low for given type or type doesnt exist.");
         }
         
         TareWeight = 1000;
@@ -28,6 +28,6 @@ public class RefrigeratedContainer : Container
         Depth = 300;
         MaxPayload = 3000;
         num++;
-        SerialNum = "KON-R-{num}";
+        SerialNum = "KON-R-" + num;
     }
 }

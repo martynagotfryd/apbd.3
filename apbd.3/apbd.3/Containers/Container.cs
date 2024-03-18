@@ -29,7 +29,11 @@ public class Container : IContainer
     public virtual void Unload()
     {
         CargoMass = 0;
-        throw new NotImplementedException();
+    }
+
+    public virtual void getInfo()
+    {
+        Console.WriteLine("Serial Num: " + SerialNum + "\nCargo Mass: " + CargoMass + "\nMax Payload: " + MaxPayload);
     }
 }
 

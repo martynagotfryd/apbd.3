@@ -7,7 +7,7 @@ public class GasContainer : Container, IHazardNotifier
     private static int num = 0;
     private double Pressure { get; set; }
     
-    protected GasContainer(double pressure) 
+    public GasContainer(double pressure) 
     {
         Pressure = pressure;
         TareWeight = 1000;
@@ -15,7 +15,7 @@ public class GasContainer : Container, IHazardNotifier
         Depth = 300;
         MaxPayload = 3000;
         num++;
-        SerialNum = "KON-G-{num}";
+        SerialNum = "KON-G-" + num;
     }
 
     public override void Unload()

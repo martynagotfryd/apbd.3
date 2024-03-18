@@ -3,15 +3,43 @@
 using apbd._3;
 using apbd._3.Containers;
 
-Console.WriteLine("Hello, World!");
+Container liquidContainer = new LiquidContainer(true);
+Container liquidContainer2 = new LiquidContainer(true);
+Container gasContainer = new GasContainer(22.2);
+Container refrigeratedContainer = new RefrigeratedContainer("fruits", 13.0);
+// Container refrigeratedContainer2 = new RefrigeratedContainer("fruits", 14.0);
 
-// var container = new Container(100.0); or new Container() { CargoMass = 100.0 };
+List<Container> containers = new();
+containers.Add(liquidContainer2);
+containers.Add(gasContainer);
+containers.Add(refrigeratedContainer);
 
-List<int> list = new List<int>() {1,2,3};
-Dictionary<string, int> dictionary = new(); 
+// liquidContainer.getInfo();
+// liquidContainer.Load(2000);
+// liquidContainer2.getInfo();
 
-int? a = 1;
-a = null;
+// gasContainer.Load(100.0);
+// gasContainer.getInfo();
+// gasContainer.Unload();
+// gasContainer.getInfo();
 
-Dictionary<Products, double> products = new();
+ContainerShip containerShip = new ContainerShip();
+ContainerShip containerShip2 = new ContainerShip();
+
+// liquidContainer.Load(1200.0);
+
+containerShip.LoadContainer(liquidContainer);
+containerShip.LoadContainters(containers);
+containerShip.GetInfo();
+
+containerShip.RemoveContainerBySerialNum("KON-R-1");
+containerShip.GetInfo();
+
+containerShip.RemoveContainerByIndex(1);
+containerShip.GetInfo();
+
+containerShip.Transfer(containerShip2, "KON-G-1");
+containerShip.GetInfo();
+containerShip2.GetInfo();
+
 

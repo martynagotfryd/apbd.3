@@ -7,7 +7,7 @@ public class LiquidContainer : Container, IHazardNotifier
 {
     private static int num = 0;
     private bool Hazard { get; set; }
-    protected LiquidContainer(bool hazard) 
+    public LiquidContainer(bool hazard) 
     {
         Hazard = hazard;
         TareWeight = 1000;
@@ -15,7 +15,7 @@ public class LiquidContainer : Container, IHazardNotifier
         Depth = 300;
         MaxPayload = 3000;
         num++;
-        SerialNum = "KON-L-{num}";
+        SerialNum = "KON-L-" + num;
     }
 
     public override void Load(double cargoMass)
@@ -28,7 +28,6 @@ public class LiquidContainer : Container, IHazardNotifier
 
         CargoMass = cargoMass;
     }
-
     public void NotifyHazard(string message)
     {
         Console.WriteLine($"Hazard in Liquid Container {SerialNum}: {message}");
