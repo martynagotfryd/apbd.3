@@ -5,6 +5,7 @@ namespace apbd._3.Containers;
 
 public class LiquidContainer : Container, IHazardNotifier
 {
+    private static int num = 0;
     private bool Hazard { get; set; }
     protected LiquidContainer(bool hazard) 
     {
@@ -13,7 +14,8 @@ public class LiquidContainer : Container, IHazardNotifier
         Height = 400;
         Depth = 300;
         MaxPayload = 3000;
-        SerialNum = "KON-L-{1++}";
+        num++;
+        SerialNum = "KON-L-{num}";
     }
 
     public override void Load(double cargoMass)

@@ -4,6 +4,7 @@ namespace apbd._3.Containers;
 
 public class GasContainer : Container, IHazardNotifier
 {
+    private static int num = 0;
     private double Pressure { get; set; }
     
     protected GasContainer(double pressure) 
@@ -13,7 +14,8 @@ public class GasContainer : Container, IHazardNotifier
         Height = 400;
         Depth = 300;
         MaxPayload = 3000;
-        SerialNum = "KON-G-{1++}";
+        num++;
+        SerialNum = "KON-G-{num}";
     }
 
     public override void Unload()
